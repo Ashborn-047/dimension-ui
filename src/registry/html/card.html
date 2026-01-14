@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Tilt Card - Plain CSS Preview</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            margin: 0;
+            font-family: sans-serif;
+            color: white;
+        }
+
+        .card-container {
+            perspective: 1500px;
+        }
+
+        .card-3d {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background: linear-gradient(135deg, #1f2937, #111827);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transform-style: preserve-3d;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        /* Card depth */
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #374151;
+            border-radius: 20px;
+            transform: translateZ(-10px);
+        }
+
+        .card-content {
+            padding: 30px;
+            transform: translateZ(40px);
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #3b82f6;
+            border-radius: 20px;
+            font-size: 12px;
+            transform: translateZ(20px);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Hover effect - simple CSS version */
+        .card-container:hover .card-3d {
+            transform: rotateY(15deg) rotateX(10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card-3d">
+            <div class="card-content">
+                <div class="card-badge">PREMIUM</div>
+                <h2 class="card-title">3D Experience</h2>
+                <p>Built with pure CSS depth for maximum performance.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
