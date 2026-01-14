@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ export function CodeBlock({ code, language = "tsx", className }: CodeBlockProps)
                 </button>
             </div>
             <div className="p-4 overflow-x-auto">
-                <pre className="text-sm font-mono text-slate-300">
+                <pre className={cn("text-sm font-mono text-slate-300", language && `language-${language}`)}>
                     <code>{code}</code>
                 </pre>
             </div>

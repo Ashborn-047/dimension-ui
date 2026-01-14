@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar as CalendarIcon, ChevronDown } from "lucide-react";
+import { Calendar as CalendarIcon } from "lucide-react";
 import { Calendar } from "./Calendar";
 import { cn } from "@/lib/utils";
 
 export function DatePicker({ className }: { className?: string }) {
     const [isOpen, setIsOpen] = useState(false);
-    const [date, setDate] = useState<Date | null>(null);
+    const [date] = useState<Date | null>(null);
 
     return (
         <div className={cn("relative w-[280px]", className)}>

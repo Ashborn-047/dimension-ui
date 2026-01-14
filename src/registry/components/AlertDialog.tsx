@@ -1,6 +1,6 @@
-import React from "react";
+
 import { motion, AnimatePresence } from "framer-motion";
-import { AlertCircle, X } from "lucide-react";
+import { AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "./Button";
 

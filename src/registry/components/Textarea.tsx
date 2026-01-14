@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+
+
 import { cn } from "@/lib/utils";
 
 export function Textarea({ className, ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement>) {

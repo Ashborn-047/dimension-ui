@@ -2,7 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<React.ComponentProps<typeof motion.button>, "children"> {
+    children: React.ReactNode;
     variant?: "default" | "secondary" | "destructive" | "outline";
     size?: "sm" | "md" | "lg";
 }

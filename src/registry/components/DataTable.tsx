@@ -1,7 +1,7 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "./Table";
 import { ChevronDown, MoreHorizontal } from "lucide-react";
 
-export function DataTable({ data }: { data: any[] }) {
+export function DataTable({ data }: { data: Record<string, unknown>[] }) {
     const columns = Object.keys(data[0] || {});
 
     return (
@@ -22,14 +22,14 @@ export function DataTable({ data }: { data: any[] }) {
                         {columns.map(col => (
                             <TableHead key={col} className="capitalize">{col}</TableHead>
                         ))}
-                        <TableHead />
+                        <TableHead><span className="sr-only">Actions</span></TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {data.map((row, i) => (
                         <TableRow key={i}>
                             {columns.map(col => (
-                                <TableCell key={col} className="font-medium text-neutral-600 dark:text-neutral-400">{row[col]}</TableCell>
+                                <TableCell key={col} className="font-medium text-neutral-600 dark:text-neutral-400">{row[col] as React.ReactNode}</TableCell>
                             ))}
                             <TableCell className="text-right">
                                 <button className="p-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded-lg transition-colors">

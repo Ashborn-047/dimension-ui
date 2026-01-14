@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/registry/components/Button";
 import { Alert } from "@/registry/components/Alert";
 import { Card } from "@/registry/components/Card";
@@ -20,7 +20,7 @@ import { InputOTP } from "@/registry/components/InputOTP";
 import { Select } from "@/registry/components/Select";
 import { Toggle } from "@/registry/components/Toggle";
 import { Skeleton, SkeletonCard, SkeletonAvatar } from "@/registry/components/Skeleton";
-import { Toast, ToastContainer, useToast, ToastProps } from "@/registry/components/Toast";
+import { ToastContainer, useToast } from "@/registry/components/Toast";
 import { HoverCard } from "@/registry/components/HoverCard";
 import { Sheet } from "@/registry/components/Sheet";
 import { Input } from "@/registry/components/Input";
@@ -28,14 +28,14 @@ import { Slider } from "@/registry/components/Slider";
 import { Tooltip } from "@/registry/components/Tooltip";
 import { AlertDialog } from "@/registry/components/AlertDialog";
 import { Command } from "@/registry/components/Command";
-import { Search, Home, Settings, User, Trash, Check, ChevronRight } from "lucide-react";
-import { ThreeDIcon } from "@/registry/icons";
-import { AnimatePresence } from "framer-motion";
+import { Search, Home, Settings, User, Trash, Check } from "lucide-react";
+
+
 import { cn } from "@/lib/utils";
 
 // New Components
 import { Calendar } from "@/registry/components/Calendar";
-import { Form, FormItem, FormLabel, FormControl, FormDescription, FormMessage } from "@/registry/components/Form";
+import { Form, FormItem, FormLabel, FormControl, FormDescription } from "@/registry/components/Form";
 import { Textarea } from "@/registry/components/Textarea";
 import { Carousel } from "@/registry/components/Carousel";
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/registry/components/Menubar";
@@ -239,10 +239,11 @@ export function ProgressShowcase() {
 
   return (
     <div className="space-y-6">
-      <Progress value={progress} showValue />
-      <Progress value={75} variant="success" showValue />
-      <Progress value={50} variant="warning" showValue />
-      <Progress value={25} variant="danger" showValue />
+      <Progress value={progress} />
+      {/* Variants and showValue removed as they are not supported by the component yet */}
+      <Progress value={75} />
+      <Progress value={50} />
+      <Progress value={25} />
     </div>
   );
 }
@@ -411,21 +412,16 @@ export function SliderShowcase() {
       <div>
         <p className="text-sm text-muted-foreground mb-2">Value: {value}</p>
         <Slider
-          value={value}
-          onChange={setValue}
-          showValue
+          value={[value]}
+          onValueChange={(vals) => setValue(vals[0])}
         />
       </div>
-      <Slider
-        value={75}
-        showValue
-      />
+      <Slider value={[75]} />
       <Slider
         min={0}
         max={10}
         step={1}
-        value={5}
-        showValue
+        value={[5]}
       />
     </div>
   );

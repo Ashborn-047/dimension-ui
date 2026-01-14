@@ -1,4 +1,4 @@
-import React from "react";
+
 import { User as LucideUser } from "lucide-react";
 import { ThreeDIcon } from "./ThreeDIcon";
 

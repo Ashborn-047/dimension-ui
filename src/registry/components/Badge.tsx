@@ -24,8 +24,8 @@ export function Badge({
 
     return (
         <motion.span
-            whileHover={{ y: -2, translateZ: "10px" }}
-            animate={{ y: 0, translateZ: "0px" }}
+            whileHover={animate ? { y: -2, translateZ: "10px" } : undefined}
+            animate={animate ? { y: 0, translateZ: "0px" } : undefined}
             className={cn(
                 "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border shadow-md",
                 variants[variant],

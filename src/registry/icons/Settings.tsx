@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Settings as LucideSettings } from "lucide-react";
 import { ThreeDIcon } from "./ThreeDIcon";
 

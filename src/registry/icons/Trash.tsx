@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Trash2 as LucideTrash } from "lucide-react";
 import { ThreeDIcon } from "./ThreeDIcon";
 

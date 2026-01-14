@@ -1,14 +1,8 @@
-import React, { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect, useMemo, forwardRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
-import { Search, Copy, Check, Menu, Github, ChevronRight, Terminal, Box, Layers, Image as ImageIcon, FileCode, Layout, ArrowRight, Zap, Globe, Shield, Twitter, Component, CircleDashed, Construction, MousePointer, ToggleLeft, CheckSquare, Circle, CreditCard, MessageSquare, Square, Heart, ChevronDown, User } from "lucide-react";
-import { Button } from "@/registry/components/Button";
-import { Card } from "@/registry/components/Card";
-import { Switch } from "@/registry/components/Switch";
-import { Checkbox } from "@/registry/components/Checkbox";
-import { RadioGroup } from "@/registry/components/RadioGroup";
-import { Dialog } from "@/registry/components/Dialog";
+
+import { Search, Copy, Check, Menu, Github, ChevronRight, Terminal, Box, Layers, Image as ImageIcon, FileCode, Layout, ArrowRight, Zap, Globe, Shield, Twitter, CircleDashed, Construction, MousePointer, ToggleLeft, CheckSquare, Circle, MessageSquare, Square, Heart, ChevronDown, User } from "lucide-react";
+
 import { ComponentPageRenderer, isComponentImplemented } from "./components/ComponentPageRenderer";
 
 import { cn } from "@/lib/utils";
@@ -133,7 +127,7 @@ function HeroTabs() {
   return (
     <div className="flex flex-col items-center w-full py-8">
       <div className="flex space-x-2 sm:space-x-6 rounded-full bg-white dark:bg-neutral-900/50 border border-neutral-200 dark:border-white/10 p-2 sm:p-4 shadow-xl shadow-neutral-200/50 dark:shadow-none overflow-x-auto max-w-full no-scrollbar backdrop-blur-md">
-        {demoTabs.map((tab, index) => (
+        {demoTabs.map((tab) => (
           <motion.button
             key={tab.id}
             onClick={() => handleTabClick(tab.id)}
@@ -190,7 +184,7 @@ function HeroTabs() {
 }
 
 // --- SUB-COMPONENT: ASSET CARD ---
-const AssetCard = React.forwardRef<HTMLDivElement, { asset: typeof libraryAssets[0] }>(({ asset }, ref) => {
+const AssetCard = forwardRef<HTMLDivElement, { asset: typeof libraryAssets[0] }>(({ asset }, ref) => {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
