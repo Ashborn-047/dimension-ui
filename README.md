@@ -1,7 +1,5 @@
 # Dimension UI
 
-![Dimension UI Banner](https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3)
-
 > **Make your interface pop with 3D.**  
 > A collection of production-ready 3D components and assets. Built with React, Framer Motion, and Tailwind CSS.
 
@@ -15,7 +13,30 @@ Dimension UI is not just another component library; it's a curated set of re-usa
 - **Type Safe**: Written in TypeScript for a robust development experience.
 - **Beautifully Designed**: Modern, aesthetic, and accessible default styles.
 
-## 🚀 Getting Started
+## 🎥 Demo
+
+![Demo Preview](https://github.com/Ashborn-047/dimension-ui/assets/placeholder-demo.png)
+
+_Interactive demo coming soon._
+
+To see the components in action locally:
+
+```bash
+git clone https://github.com/Ashborn-047/dimension-ui.git
+cd dimension-ui
+npm install
+npm run dev
+```
+
+## �️ Tech Stack
+
+- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **3D Assets**: [Animated Fluent Emojis](https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis)
+
+## �🚀 Getting Started
 
 ### Prerequisites
 
@@ -80,14 +101,6 @@ The library includes a wide range of components, enhanced with 3D or high-qualit
 - **Form Elements**: Checkbox, Form, Input, Slider, Switch, Textarea, Combobox
 - **Feedback**: Alert, Dialog, Drawer, Toast, Tooltip, Hover Card
 - **Data Display**: Avatar, Progress, Skeleton, Table, Chart, Calendar
-
-## 🛠️ Tech Stack
-
-- **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **3D Assets**: [Animated Fluent Emojis](https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis)
 
 ## 🤝 Contributing
 
