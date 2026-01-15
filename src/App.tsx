@@ -676,11 +676,25 @@ export default function App() {
                         <strong>Why?</strong> Because 3D assets add delight. They make your interface pop. But they are hard to implement correctly with performance and accessibility in mind.
                       </p>
                     </div>
-                    <div className="flex gap-4 pt-4">
+                    <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                      <div className="p-4 rounded-xl border-2 bg-muted/20">
+                        <h4 className="font-bold text-sm mb-1 uppercase tracking-tighter">The Vision</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          Give engineers full ownership over high-end 3D design logic. No secret dependencies, no weird shortcuts. Just pure, readable code.
+                        </p>
+                      </div>
+                      <div className="p-4 rounded-xl border-2 bg-muted/20">
+                        <h4 className="font-bold text-sm mb-1 uppercase tracking-tighter">Original Code</h4>
+                        <p className="text-xs text-muted-foreground leading-relaxed">
+                          Every component is a local file. You own the logic, the physics, and the styling. It's built for developers who want to scale.
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex gap-4 pt-6">
                       <button onClick={() => setActivePage('install')} className="px-6 py-2.5 bg-primary text-primary-foreground rounded-full font-medium text-sm hover:opacity-90 transition-opacity">
                         Installation
                       </button>
-                      <button onClick={() => setActivePage('components-index')} className="px-6 py-2.5 border border-border bg-background rounded-full font-medium text-sm hover:bg-secondary transition-colors">
+                      <button onClick={() => setActivePage('components-index')} className="px-6 py-2.5 border-2 border-border bg-background rounded-full font-medium text-sm hover:bg-secondary transition-colors">
                         Browse Components
                       </button>
                     </div>
@@ -701,15 +715,26 @@ export default function App() {
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-xl">1. Initialize Project</h3>
-                      <p className="text-sm text-muted-foreground">Run the init command to setup tailwind config, global styles, and monochromatic variables.</p>
-                      <CodeBlock code={`npx dimension-ui init`} />
+                      <h3 className="font-semibold text-xl">1. Install CLI</h3>
+                      <p className="text-sm text-muted-foreground">Install the Dimension UI CLI as a development dependency or run it via npx.</p>
+                      <div className="space-y-4">
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1">Option A: npm install</div>
+                        <CodeBlock code={`npm install dimension-ui -D`} />
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">Option B: npx (recommended)</div>
+                        <CodeBlock code={`npx dimension-ui init`} />
+                      </div>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-xl">2. Add Components</h3>
-                      <p className="text-sm text-muted-foreground">Add components directly to your project. This will drop the "Original Code" into your components/ui folder.</p>
-                      <CodeBlock code={`npx dimension-ui add button`} />
+                      <h3 className="font-semibold text-xl">2. Initialize Project</h3>
+                      <p className="text-sm text-muted-foreground">Setup your tailwind config, global 3D CSS, and monochromatic variables.</p>
+                      <CodeBlock code={`dimension-ui init`} />
+                    </div>
+
+                    <div className="space-y-4">
+                      <h3 className="font-semibold text-xl">3. Add Components</h3>
+                      <p className="text-sm text-muted-foreground">Fetch the "Original Code" from our registry and drop it into your local folder.</p>
+                      <CodeBlock code={`dimension-ui add button`} />
                     </div>
 
                     <div className="space-y-6 pt-8 border-t">
