@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { CodeBlock } from "./ui/CodeBlock";
-import { REGISTRY_CODE } from "@/registry/registry-index";
+import { REGISTRY_DATA } from "@/registry/registry-index";
 import {
   ButtonShowcase,
   CardShowcase,
@@ -309,6 +310,7 @@ interface ComponentPageRendererProps {
 
 export function ComponentPageRenderer({ componentId, onNavigate }: ComponentPageRendererProps) {
   const [viewMode, setViewMode] = useState<'preview' | 'code'>('preview');
+  const [codeMode, setCodeMode] = useState<'usage' | 'source'>('usage');
   const config = COMPONENT_MAP[componentId];
 
   if (!config) {
@@ -359,11 +361,49 @@ export function ComponentPageRenderer({ componentId, onNavigate }: ComponentPage
           {viewMode === 'preview' ? (
             <ShowcaseComponent />
           ) : (
-            <div className="w-full h-full max-h-[600px] overflow-y-auto">
-              <CodeBlock
-                code={REGISTRY_CODE[componentId] || `// Source code for ${config.name} coming soon...\n\nimport { ${config.name.replace('3D ', '').replace(' ', '')} } from "@/registry/components/${componentId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}";\n\nexport default function Demo() {\n  return <${config.name.replace('3D ', '').replace(' ', '')} />;\n}`}
-                language="tsx"
-              />
+            <div className="w-full flex flex-col">
+              <div className="flex items-center gap-2 px-6 py-2 border-b border-border bg-muted/20">
+                <button
+                  onClick={() => setCodeMode('usage')}
+                  className={cn(
+                    "text-xs font-semibold px-2 py-1 rounded transition-colors",
+                    codeMode === 'usage' ? "bg-neutral-900 text-neutral-50" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Usage
+                </button>
+                <button
+                  onClick={() => setCodeMode('source')}
+                  className={cn(
+                    "text-xs font-semibold px-2 py-1 rounded transition-colors",
+                    codeMode === 'source' ? "bg-neutral-900 text-neutral-50" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  Source
+                </button>
+              </div>
+              <div className="w-full h-full max-h-[600px] overflow-y-auto bg-slate-950">
+                {REGISTRY_DATA[componentId] ? (
+                  <div className="flex flex-col h-full">
+                    <div className="flex items-center px-4 py-2 bg-slate-900 border-b border-slate-800">
+                      <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">{REGISTRY_DATA[componentId][codeMode].filename}</span>
+                    </div>
+                    <CodeBlock
+                      code={REGISTRY_DATA[componentId][codeMode].code}
+                      language="tsx"
+                      className="border-0 shadow-none rounded-none"
+                    />
+                  </div>
+                ) : (
+                  <div className="p-8">
+                    <CodeBlock
+                      code={`// ${codeMode === 'usage' ? 'Usage example' : 'Source code'} for ${config.name} coming soon...\n\nimport { ${config.name.replace('3D ', '').replace(' ', '')} } from "@/registry/components/${componentId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}";\n\nexport default function Demo() {\n  return <${config.name.replace('3D ', '').replace(' ', '')} />;\n}`}
+                      language="tsx"
+                      className="border-0 shadow-none"
+                    />
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>

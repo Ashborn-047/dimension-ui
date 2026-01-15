@@ -33,8 +33,20 @@ import { Search, Home, Settings, User, Trash, Check } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-// New Components
+import { ThreeDIcon } from "@/registry/icons/ThreeDIcon";
 import { Calendar } from "@/registry/components/Calendar";
+
+export function IconShowcase() {
+  return (
+    <div className="flex gap-12 group p-8">
+      <ThreeDIcon size={48} color="rgba(0,0,0,0.8)"><Search size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48} color="rgba(0,0,0,0.7)"><Home size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48} color="rgba(0,0,0,0.8)"><Settings size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48} color="rgba(0,0,0,0.7)"><User size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48} color="rgba(0,0,0,0.9)"><Trash size={48} /></ThreeDIcon>
+    </div>
+  );
+}
 import { Form, FormItem, FormLabel, FormControl, FormDescription } from "@/registry/components/Form";
 import { Textarea } from "@/registry/components/Textarea";
 import { Carousel } from "@/registry/components/Carousel";
@@ -479,17 +491,6 @@ export function CommandShowcase() {
   );
 }
 
-export function IconShowcase() {
-  return (
-    <div className="flex gap-8 group">
-      <Search size={32} />
-      <Home size={32} />
-      <Settings size={32} />
-      <User size={32} />
-      <Trash size={32} />
-    </div>
-  );
-}
 
 export function AlertShowcase() {
   return (

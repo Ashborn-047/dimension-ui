@@ -1,5 +1,35 @@
-export const REGISTRY_CODE: Record<string, string> = {
-    "button": `import React from "react";
+export interface RegistryItem {
+    usage: {
+        code: string;
+        filename: string;
+    };
+    source: {
+        code: string;
+        filename: string;
+    };
+}
+
+export const REGISTRY_DATA: Record<string, RegistryItem> = {
+    "button": {
+        usage: {
+            filename: "Demo.tsx",
+            code: `import { Button } from "@/components/ui/button";
+
+export default function ButtonDemo() {
+  return (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Button>Default Button</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="destructive">Destructive</Button>
+      <Button size="sm">Small</Button>
+      <Button size="lg">Large</Button>
+    </div>
+  );
+}`
+        },
+        source: {
+            filename: "components/ui/button.tsx",
+            code: `import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -117,8 +147,36 @@ export function Button({
             </motion.button>
         </div>
     );
-}`,
-    "alert": `import React from "react";
+}`
+        }
+    },
+    "alert": {
+        usage: {
+            filename: "Demo.tsx",
+            code: `import { Alert } from "@/components/ui/alert";
+
+export default function AlertDemo() {
+  return (
+    <div className="space-y-4 w-full max-w-md">
+      <Alert title="Default Alert">
+        This is a standard information alert with a 3D effect.
+      </Alert>
+      <Alert variant="success" title="Success Alert">
+        Your changes have been saved successfully.
+      </Alert>
+      <Alert variant="warning" title="Warning Alert">
+        Please review your information before proceeding.
+      </Alert>
+      <Alert variant="destructive" title="Error Alert">
+        Something went wrong while processing your request.
+      </Alert>
+    </div>
+  );
+}`
+        },
+        source: {
+            filename: "components/ui/alert.tsx",
+            code: `import React from "react";
 import { motion } from "framer-motion";
 import { AlertCircle, Info, AlertTriangle, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -207,8 +265,28 @@ export function Alert({
             </div>
         </motion.div>
     );
-}`,
-    "badge": `import React from "react";
+}`
+        }
+    },
+    "badge": {
+        usage: {
+            filename: "Demo.tsx",
+            code: `import { Badge } from "@/components/ui/badge";
+
+export default function BadgeDemo() {
+  return (
+    <div className="flex flex-wrap gap-4 items-center">
+      <Badge>Default</Badge>
+      <Badge variant="secondary">Secondary</Badge>
+      <Badge variant="destructive">Destructive</Badge>
+      <Badge variant="outline">Outline</Badge>
+    </div>
+  );
+}`
+        },
+        source: {
+            filename: "components/ui/badge.tsx",
+            code: `import React from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -248,8 +326,26 @@ export function Badge({
             <span className="relative z-10">{children}</span>
         </motion.span>
     );
-}`,
-    "input": `import React, { useState } from "react";
+}`
+        }
+    },
+    "input": {
+        usage: {
+            filename: "Demo.tsx",
+            code: `import { Input } from "@/components/ui/input";
+
+export default function InputDemo() {
+  return (
+    <div className="space-y-4 max-w-md">
+      <Input placeholder="Enter your email" label="Email" />
+      <Input placeholder="Search..." icon={<Search size={18} />} />
+    </div>
+  );
+}`
+        },
+        source: {
+            filename: "components/ui/input.tsx",
+            code: `import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -288,77 +384,116 @@ export function Input({
                         damping: 25,
                     }}
                     className="relative"
-                    style={{
-                        transformStyle: "preserve-3d",
-                    }}
+                    style={{ transformStyle: "preserve-3d" }}
                 >
-                    {/* Input depth/well */}
                     <div
                         className={cn(
                             "absolute inset-0 rounded-lg",
-                            error ? "bg-black dark:bg-neutral-50" : isFocused ? "bg-neutral-800 dark:bg-neutral-200" : "bg-gray-400 dark:bg-neutral-900"
+                            error ? "bg-black" : "bg-gray-400"
                         )}
-                        style={{
-                            transform: "translateZ(-4px)",
-                        }}
+                        style={{ transform: "translateZ(-4px)" }}
                     />
-
-                    {/* Input container */}
-                    <div className="relative">
-                        {icon && (
-                            <div
-                                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground z-10"
-                                style={{
-                                    transform: "translateY(-50%) translateZ(4px)",
-                                }}
-                            >
-                                {icon}
-                            </div>
+                    <input
+                        {...props}
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
+                        className={cn(
+                            "relative w-full px-4 py-2.5 rounded-lg border-2",
+                            className
                         )}
-
-                        <input
-                            {...props}
-                            onFocus={(e) => {
-                                setIsFocused(true);
-                                props.onFocus?.(e);
-                            }}
-                            onBlur={(e) => {
-                                setIsFocused(false);
-                                props.onBlur?.(e);
-                            }}
-                            className={cn(
-                                "relative w-full px-4 py-2.5 rounded-lg",
-                                "bg-gradient-to-b from-white to-gray-50 dark:from-neutral-800 dark:to-neutral-900",
-                                "border-2 transition-all duration-200",
-                                "shadow-[inset_0_2px_4_rgba(0,0,0,0.06),0_1px_2_rgba(0,0,0,0.05)]",
-                                "focus:outline-none",
-                                error
-                                    ? "border-neutral-900 dark:border-neutral-100 focus:border-neutral-950"
-                                    : "border-gray-200 dark:border-neutral-700 focus:border-neutral-400",
-                                isFocused && "shadow-[inset_0_2px_6px_rgba(0,0,0,0.08),0_0_0_3px_rgba(0,0,0,0.05)]",
-                                icon && "pl-10",
-                                className
-                            )}
-                            style={{
-                                transform: "translateZ(2px)",
-                            }}
-                        />
-
-                        {/* Top shine */}
-                        <div
-                            className="absolute inset-x-0 top-0 h-1/3 rounded-t-lg bg-gradient-to-b from-white/20 to-transparent pointer-events-none"
-                            style={{
-                                transform: "translateZ(3px)",
-                            }}
-                        />
-                    </div>
+                        style={{ transform: "translateZ(2px)" }}
+                    />
                 </motion.div>
             </div>
-
-            {error && (
-                <p className="text-xs text-neutral-900 dark:text-neutral-100 mt-1 ml-1 italic font-medium">{error}</p>
-            )}
         </div>
     );
-}`,
+}`
+        }
+    },
+    "icons": {
+        usage: {
+            filename: "Demo.tsx",
+            code: `import { ThreeDIcon } from "@/components/ui/3d-icon";
+import { Search, Home, Settings } from "lucide-react";
+
+export default function IconsDemo() {
+  return (
+    <div className="flex gap-12 p-8">
+      <ThreeDIcon size={48}><Search size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48}><Home size={48} /></ThreeDIcon>
+      <ThreeDIcon size={48}><Settings size={48} /></ThreeDIcon>
+    </div>
+  );
+}`
+        },
+        source: {
+            filename: "components/ui/3d-icon.tsx",
+            code: `import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface ThreeDIconProps {
+    children: React.ReactNode;
+    color?: string;
+    depth?: number;
+    size?: number;
+    className?: string;
+    animate?: boolean;
+}
+
+export function ThreeDIcon({
+    children,
+    color = "currentColor",
+    depth = 4,
+    size = 24,
+    className,
+    animate = true
+}: ThreeDIconProps) {
+    return (
+        <div
+            className={cn("relative inline-block perspective-[500px]", className)}
+            style={{ width: size, height: size }}
+        >
+            <motion.div
+                animate={animate ? {
+                    rotateY: [0, 10, -10, 0],
+                    rotateX: [0, -10, 10, 0],
+                } : {}}
+                transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+                className="w-full h-full"
+                style={{ transformStyle: "preserve-3d" }}
+            >
+                {[...Array(depth)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="absolute inset-0"
+                        style={{
+                            transform: \`translateZ(-\${i}px)\`,
+                            color: i === 0 ? color : \`color-mix(in srgb, \${color}, black \${i * 10}%)\`,
+                            opacity: 1 - (i / (depth * 2)),
+                        }}
+                    >
+                        {children}
+                    </div>
+                ))}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        transform: "translateZ(1px)",
+                        color: color,
+                        filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.3))",
+                    }}
+                >
+                    {children}
+                </div>
+            </motion.div>
+        </div>
+    );
+}`
+        }
+    }
 };
