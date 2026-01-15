@@ -188,7 +188,12 @@ const AssetCard = forwardRef<HTMLDivElement, { asset: typeof libraryAssets[0] }>
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(asset.url);
+    const isVideo = asset.url.endsWith('.webm');
+    const codeSnippet = isVideo
+      ? `<video \n  src="${asset.url}" \n  className="grayscale hover:grayscale-0 transition-all cursor-pointer" \n  autoPlay muted loop playsInline \n/>`
+      : `<img \n  src="${asset.url}" \n  className="grayscale hover:grayscale-0 transition-all cursor-pointer" \n  alt="${asset.name}" \n/>`;
+
+    navigator.clipboard.writeText(codeSnippet);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

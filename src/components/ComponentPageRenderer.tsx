@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronRight, ExternalLink } from "lucide-react";
 import { CodeBlock } from "./ui/CodeBlock";
+import { REGISTRY_CODE } from "@/registry/registry-index";
 import {
   ButtonShowcase,
   CardShowcase,
@@ -358,9 +359,9 @@ export function ComponentPageRenderer({ componentId, onNavigate }: ComponentPage
           {viewMode === 'preview' ? (
             <ShowcaseComponent />
           ) : (
-            <div className="w-full h-full max-h-[500px] overflow-y-auto">
+            <div className="w-full h-full max-h-[600px] overflow-y-auto">
               <CodeBlock
-                code={`import { ${config.name.replace('3D ', '').replace(' ', '')} } from "@/registry/components/${componentId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}";\n\nexport default function Demo() {\n  return <${config.name.replace('3D ', '').replace(' ', '')} />;\n}`}
+                code={REGISTRY_CODE[componentId] || `// Source code for ${config.name} coming soon...\n\nimport { ${config.name.replace('3D ', '').replace(' ', '')} } from "@/registry/components/${componentId.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')}";\n\nexport default function Demo() {\n  return <${config.name.replace('3D ', '').replace(' ', '')} />;\n}`}
                 language="tsx"
               />
             </div>
