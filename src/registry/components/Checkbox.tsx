@@ -85,7 +85,7 @@ export function Checkbox({
                             stiffness: 600,
                             damping: 25,
                         }}
-                        className="absolute inset-0 flex items-center justify-center text-white"
+                        className="absolute inset-0 flex items-center justify-center text-neutral-50"
                         style={{
                             transformStyle: "preserve-3d",
                             transformOrigin: "center",

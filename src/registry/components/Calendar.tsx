@@ -46,7 +46,7 @@ export function Calendar({ className }: { className?: string }) {
                         className={cn(
                             "size-8 flex items-center justify-center text-xs rounded-lg transition-all",
                             day === 14
-                                ? "bg-neutral-900 text-white dark:bg-white dark:text-black font-bold shadow-lg"
+                                ? "bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-950 font-bold shadow-lg"
                                 : "hover:bg-neutral-100 dark:hover:bg-neutral-800 border border-transparent hover:border-neutral-200 dark:hover:border-neutral-700"
                         )}
                         style={{ transformStyle: "preserve-3d" }}

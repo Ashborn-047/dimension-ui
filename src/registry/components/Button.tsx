@@ -20,21 +20,25 @@ export function Button({
         default: {
             top: "bg-neutral-800 dark:bg-neutral-100",
             side: "bg-neutral-950 dark:bg-neutral-300",
+            text: "text-neutral-50 dark:text-neutral-950",
             glow: "shadow-[0_0_20px_rgba(0,0,0,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
         },
         secondary: {
             top: "bg-neutral-100 dark:bg-neutral-800",
             side: "bg-neutral-300 dark:bg-neutral-950",
+            text: "text-neutral-900 dark:text-neutral-50",
             glow: "shadow-[0_0_15px_rgba(0,0,0,0.1)]"
         },
         destructive: {
             top: "bg-neutral-950 dark:bg-neutral-900 border border-neutral-700",
             side: "bg-black",
+            text: "text-neutral-50",
             glow: "shadow-[0_0_20px_rgba(0,0,0,0.5)]"
         },
         outline: {
-            top: "bg-background border border-border text-foreground dark:bg-neutral-900",
+            top: "bg-background border border-border dark:bg-neutral-900",
             side: "bg-neutral-200 dark:bg-neutral-800",
+            text: "text-foreground",
             glow: "shadow-sm"
         },
     };
@@ -92,9 +96,10 @@ export function Button({
                         boxShadow: "inset 0 2px 8px rgba(0,0,0,0.3)",
                     }}
                     className={cn(
-                        "relative rounded-lg font-semibold text-white transition-all duration-100",
+                        "relative rounded-lg font-semibold transition-all duration-100",
                         "shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.2)]",
                         variants[variant].top,
+                        variants[variant].text,
                         variants[variant].glow,
                         sizes[size],
                         disabled && "opacity-50 cursor-not-allowed",

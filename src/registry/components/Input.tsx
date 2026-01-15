@@ -45,7 +45,7 @@ export function Input({
                     <div
                         className={cn(
                             "absolute inset-0 rounded-lg",
-                            error ? "bg-neutral-950 dark:bg-white" : isFocused ? "bg-neutral-800 dark:bg-neutral-200" : "bg-gray-400 dark:bg-neutral-900"
+                            error ? "bg-black dark:bg-neutral-50" : isFocused ? "bg-neutral-800 dark:bg-neutral-200" : "bg-gray-400 dark:bg-neutral-900"
                         )}
                         style={{
                             transform: "translateZ(-4px)",

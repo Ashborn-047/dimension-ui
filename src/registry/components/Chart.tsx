@@ -33,7 +33,7 @@ export function Chart({ data, className }: ChartProps) {
                             />
 
                             {/* Tooltip on hover */}
-                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-white px-2 py-1 rounded text-[10px] font-bold">
+                            <div className="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black text-neutral-50 px-2 py-1 rounded text-[10px] font-bold">
                                 {val}
                             </div>
                         </motion.div>

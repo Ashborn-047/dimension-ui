@@ -71,7 +71,7 @@ export function Tooltip({
                                 damping: 30,
                             }}
                             className={cn(
-                                "relative px-3 py-2 rounded-lg text-sm text-white whitespace-nowrap",
+                                "relative px-3 py-2 rounded-lg text-sm text-neutral-50 whitespace-nowrap",
                                 "bg-gradient-to-b from-gray-800 to-gray-900",
                                 "shadow-[0_10px_30px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]",
                                 "border border-gray-700",

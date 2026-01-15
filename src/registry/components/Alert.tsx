@@ -38,7 +38,7 @@ export function Alert({
             icon: <AlertTriangle className="h-5 w-5 text-neutral-600" />
         },
         success: {
-            bg: "bg-white dark:bg-neutral-950/50",
+            bg: "bg-neutral-50 dark:bg-neutral-950/50",
             border: "border-neutral-300 dark:border-neutral-700",
             text: "text-neutral-950 dark:text-neutral-50",
             icon: <CheckCircle2 className="h-5 w-5 text-neutral-500" />

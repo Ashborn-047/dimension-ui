@@ -52,7 +52,7 @@ function PaginationLink({
             className={cn(
                 "inline-flex size-9 items-center justify-center rounded-xl border-2 text-sm font-bold transition-all shadow-sm",
                 isActive
-                    ? "bg-neutral-900 text-white border-neutral-900 dark:bg-white dark:text-black dark:border-white shadow-lg"
+                    ? "bg-neutral-900 text-neutral-50 border-neutral-900 dark:bg-neutral-50 dark:text-neutral-950 dark:border-neutral-50 shadow-lg"
                     : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800",
                 className
             )}

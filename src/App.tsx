@@ -546,7 +546,7 @@ export default function App() {
     <>
       <style>{`
         :root {
-          --background: 0 0% 100%;
+          --background: 0 0% 98%;
           --foreground: 0 0% 3.9%;
           --card: 0 0% 100%;
           --card-foreground: 0 0% 3.9%;
@@ -559,7 +559,6 @@ export default function App() {
           --muted: 0 0% 96.1%;
           --muted-foreground: 0 0% 45.1%;
           --accent: 0 0% 96.1%;
-          --accent-foreground: 0 0% 9%;
           --accent-foreground: 0 0% 9%;
           --destructive: 0 0% 45%;
           --destructive-foreground: 0 0% 98%;

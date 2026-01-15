@@ -18,7 +18,7 @@ export function Badge({
     const variants = {
         default: "bg-neutral-900 text-neutral-50 border-neutral-800 dark:bg-neutral-100 dark:text-neutral-900",
         secondary: "bg-neutral-100 text-neutral-900 border-neutral-200 dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-700",
-        destructive: "bg-white text-neutral-950 border-neutral-950 font-black dark:bg-neutral-900 dark:text-neutral-50 dark:border-neutral-50",
+        destructive: "bg-neutral-50 text-neutral-950 border-neutral-950 font-black dark:bg-neutral-900 dark:text-neutral-50 dark:border-neutral-50",
         outline: "bg-background text-foreground border-border",
     };
 
