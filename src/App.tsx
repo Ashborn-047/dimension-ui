@@ -666,6 +666,12 @@ export default function App() {
                       <p>
                         This is NOT a component library. It's a collection of re-usable components that you can copy and paste into your apps.
                       </p>
+                      <p className="font-bold text-foreground">
+                        Our goal is to give engineers full ownership over high-end 3D design logic.
+                      </p>
+                      <p>
+                        By providing <span className="text-primary font-mono">Original Code</span>—zero-dependency, readable logic—we ensure that every component you add is yours to modify, optimize, and scale. No hidden dependencies, no secret CSS files.
+                      </p>
                       <p>
                         <strong>Why?</strong> Because 3D assets add delight. They make your interface pop. But they are hard to implement correctly with performance and accessibility in mind.
                       </p>
@@ -685,29 +691,41 @@ export default function App() {
                 {activePage === 'install' && (
                   <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="space-y-2">
+                      <div className="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider mb-2">
+                        CLI First
+                      </div>
                       <h1 className="text-3xl font-bold tracking-tight">Installation</h1>
                       <p className="text-lg text-muted-foreground">
-                        How to install dependencies and structure your app for 3D components.
+                        The easiest way to get started is using our CLI to set up your design system.
                       </p>
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-xl">1. Install Dependencies</h3>
-                      <p className="text-sm text-muted-foreground">Choose your preferred package manager:</p>
-                      <div className="space-y-2">
-                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1">npm</div>
-                        <CodeBlock code={`npm install framer-motion lucide-react clsx tailwind-merge`} />
-                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">bun</div>
-                        <CodeBlock code={`bun add framer-motion lucide-react clsx tailwind-merge`} />
-                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">pnpm</div>
-                        <CodeBlock code={`pnpm add framer-motion lucide-react clsx tailwind-merge`} />
-                      </div>
+                      <h3 className="font-semibold text-xl">1. Initialize Project</h3>
+                      <p className="text-sm text-muted-foreground">Run the init command to setup tailwind config, global styles, and monochromatic variables.</p>
+                      <CodeBlock code={`npx dimension-ui init`} />
                     </div>
 
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-xl">2. Add Utility Helper</h3>
-                      <p className="text-sm text-muted-foreground">Create a `lib/utils.ts` (or `utils.js`) file to handle classes.</p>
-                      <CodeBlock code={`import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}`} />
+                      <h3 className="font-semibold text-xl">2. Add Components</h3>
+                      <p className="text-sm text-muted-foreground">Add components directly to your project. This will drop the "Original Code" into your components/ui folder.</p>
+                      <CodeBlock code={`npx dimension-ui add button`} />
+                    </div>
+
+                    <div className="space-y-6 pt-8 border-t">
+                      <h3 className="font-semibold text-xl">Manual Installation</h3>
+                      <p className="text-sm text-muted-foreground">If you prefer not to use the CLI, you can setup the dependencies manually.</p>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">A. Install Peer Dependencies</h4>
+                        <CodeBlock code={`npm install framer-motion lucide-react clsx tailwind-merge`} />
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">B. Setup Utilities</h4>
+                        <p className="text-sm text-muted-foreground">Create a `lib/utils.ts` to handle dynamic classes.</p>
+                        <CodeBlock code={`import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}`} />
+                      </div>
                     </div>
 
                     <div className="space-y-4 p-6 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-border">
