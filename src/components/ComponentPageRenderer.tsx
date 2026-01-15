@@ -366,27 +366,36 @@ export function ComponentPageRenderer({ componentId, onNavigate }: ComponentPage
                 <button
                   onClick={() => setCodeMode('usage')}
                   className={cn(
-                    "text-xs font-semibold px-2 py-1 rounded transition-colors",
-                    codeMode === 'usage' ? "bg-neutral-900 text-neutral-50" : "text-muted-foreground hover:text-foreground"
+                    "text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200",
+                    codeMode === 'usage'
+                      ? "bg-neutral-900 text-neutral-50 shadow-lg shadow-neutral-900/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-neutral-100"
                   )}
                 >
-                  Usage
+                  Example Usage
                 </button>
                 <button
                   onClick={() => setCodeMode('source')}
                   className={cn(
-                    "text-xs font-semibold px-2 py-1 rounded transition-colors",
-                    codeMode === 'source' ? "bg-neutral-900 text-neutral-50" : "text-muted-foreground hover:text-foreground"
+                    "text-xs font-semibold px-3 py-1.5 rounded-full transition-all duration-200",
+                    codeMode === 'source'
+                      ? "bg-neutral-900 text-neutral-50 shadow-lg shadow-neutral-900/20"
+                      : "text-muted-foreground hover:text-foreground hover:bg-neutral-100"
                   )}
                 >
-                  Source
+                  Component Code (Logic)
                 </button>
               </div>
               <div className="w-full h-full max-h-[600px] overflow-y-auto bg-slate-950">
                 {REGISTRY_DATA[componentId] ? (
                   <div className="flex flex-col h-full">
-                    <div className="flex items-center px-4 py-2 bg-slate-900 border-b border-slate-800">
-                      <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">{REGISTRY_DATA[componentId][codeMode].filename}</span>
+                    <div className="flex items-center gap-2 px-4 py-3 bg-slate-900 border-b border-slate-800">
+                      <div className="flex gap-1.5">
+                        <div className="w-3 h-3 rounded-full bg-red-500/20" />
+                        <div className="w-3 h-3 rounded-full bg-amber-500/20" />
+                        <div className="w-3 h-3 rounded-full bg-emerald-500/20" />
+                      </div>
+                      <span className="ml-2 text-[10px] font-mono text-slate-400 font-bold uppercase tracking-widest">{REGISTRY_DATA[componentId][codeMode].filename}</span>
                     </div>
                     <CodeBlock
                       code={REGISTRY_DATA[componentId][codeMode].code}

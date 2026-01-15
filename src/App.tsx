@@ -189,11 +189,11 @@ const AssetCard = forwardRef<HTMLDivElement, { asset: typeof libraryAssets[0] }>
 
   const handleCopy = () => {
     const isVideo = asset.url.endsWith('.webm');
-    const codeSnippet = isVideo
-      ? `<video \n  src="${asset.url}" \n  className="grayscale hover:grayscale-0 transition-all cursor-pointer" \n  autoPlay muted loop playsInline \n/>`
-      : `<img \n  src="${asset.url}" \n  className="grayscale hover:grayscale-0 transition-all cursor-pointer" \n  alt="${asset.name}" \n/>`;
+    const snippet = isVideo
+      ? `// Note: Re-host this asset in your local /public folder for production\n<video src="${asset.url}" autoplay loop muted playsinline className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" />`
+      : `// Note: Re-host this asset in your local /public folder for production\n<img src="${asset.url}" className="w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500" alt="${asset.name}" />`;
 
-    navigator.clipboard.writeText(codeSnippet);
+    navigator.clipboard.writeText(snippet);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
