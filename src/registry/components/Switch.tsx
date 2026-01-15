@@ -40,7 +40,7 @@ export function Switch({
                     "relative h-9 w-16 rounded-full transition-all duration-300",
                     "shadow-[inset_0_2px_8px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.1)]",
                     isOn
-                        ? "bg-gradient-to-b from-blue-400 to-blue-500"
+                        ? "bg-neutral-800 dark:bg-neutral-100"
                         : "bg-gradient-to-b from-gray-300 to-gray-400 dark:from-neutral-700 dark:to-neutral-800",
                     disabled && "opacity-50 cursor-not-allowed",
                     className
@@ -54,7 +54,7 @@ export function Switch({
                 <div
                     className={cn(
                         "absolute inset-0 rounded-full",
-                        isOn ? "bg-blue-600" : "bg-gray-500 dark:bg-neutral-900"
+                        isOn ? "bg-neutral-900 dark:bg-white" : "bg-gray-500 dark:bg-neutral-900"
                     )}
                     style={{
                         transform: "translateZ(-3px)",

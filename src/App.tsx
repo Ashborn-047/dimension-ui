@@ -371,10 +371,10 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
               v1.0 is now live
             </div>
             <h1 className="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50">
-              Make your interface <br className="hidden md:block" /> pop with 3D.
+              High-fidelity 3D <br className="hidden md:block" /> with zero color.
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              A collection of production-ready 3D components and assets. Built with React, Motion, and Tailwind CSS.
+              A collection of production-ready, monochromatic 3D components. Built for maximum pop using depth, shadow, and movement.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
@@ -410,21 +410,21 @@ function LandingPage({ onNavigate }: { onNavigate: (page: string) => void }) {
         <div className="container px-4 md:px-8 mx-auto">
           <div className="grid md:grid-cols-3 gap-8">
             <div className="p-6 rounded-2xl bg-background border border-border hover:shadow-lg transition-all duration-300">
-              <div className="size-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+              <div className="size-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 flex items-center justify-center mb-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
                 <Zap size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2">Instant Setup</h3>
               <p className="text-muted-foreground">Copy and paste components directly into your project. No npm install required for the core library.</p>
             </div>
             <div className="p-6 rounded-2xl bg-background border border-border hover:shadow-lg transition-all duration-300">
-              <div className="size-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+              <div className="size-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 flex items-center justify-center mb-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
                 <Globe size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2">Universal Assets</h3>
               <p className="text-muted-foreground">Built on standard web formats (WebM & PNG) ensuring compatibility across all modern browsers.</p>
             </div>
             <div className="p-6 rounded-2xl bg-background border border-border hover:shadow-lg transition-all duration-300">
-              <div className="size-12 rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center mb-4">
+              <div className="size-12 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 flex items-center justify-center mb-4 border border-neutral-200 dark:border-neutral-700 shadow-sm">
                 <Shield size={24} />
               </div>
               <h3 className="text-xl font-bold mb-2">Type Safe</h3>
@@ -560,7 +560,8 @@ export default function App() {
           --muted-foreground: 0 0% 45.1%;
           --accent: 0 0% 96.1%;
           --accent-foreground: 0 0% 9%;
-          --destructive: 0 84.2% 60.2%;
+          --accent-foreground: 0 0% 9%;
+          --destructive: 0 0% 45%;
           --destructive-foreground: 0 0% 98%;
           --border: 0 0% 89.8%;
           --input: 0 0% 89.8%;
@@ -582,7 +583,7 @@ export default function App() {
           --muted-foreground: 0 0% 63.9%;
           --accent: 0 0% 14.9%;
           --accent-foreground: 0 0% 98%;
-          --destructive: 0 62.8% 30.6%;
+          --destructive: 0 0% 45%;
           --destructive-foreground: 0 0% 98%;
           --border: 0 0% 14.9%;
           --input: 0 0% 14.9%;
@@ -590,6 +591,18 @@ export default function App() {
         }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Monochromatic 3D Aesthetic */
+        img, video {
+          filter: grayscale(1) contrast(1.1);
+          transition: filter 0.3s ease;
+        }
+        img:hover, video:hover {
+          filter: grayscale(0.8) contrast(1.1);
+        }
+        .grayscale-3d {
+          filter: grayscale(1) contrast(1.1) brightness(1.1);
+        }
       `}</style>
 
       <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20">
@@ -670,18 +683,45 @@ export default function App() {
                     <div className="space-y-2">
                       <h1 className="text-3xl font-bold tracking-tight">Installation</h1>
                       <p className="text-lg text-muted-foreground">
-                        How to install dependencies and structure your app.
+                        How to install dependencies and structure your app for 3D components.
                       </p>
                     </div>
+
                     <div className="space-y-4">
-                      <h3 className="font-semibold text-xl">1. Install Utilities</h3>
-                      <p className="text-sm text-muted-foreground">We use `clsx` and `tailwind-merge` for conditional classes.</p>
-                      <CodeBlock code={`npm install clsx tailwind-merge motion lucide-react`} />
+                      <h3 className="font-semibold text-xl">1. Install Dependencies</h3>
+                      <p className="text-sm text-muted-foreground">Choose your preferred package manager:</p>
+                      <div className="space-y-2">
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1">npm</div>
+                        <CodeBlock code={`npm install framer-motion lucide-react clsx tailwind-merge`} />
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">bun</div>
+                        <CodeBlock code={`bun add framer-motion lucide-react clsx tailwind-merge`} />
+                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">pnpm</div>
+                        <CodeBlock code={`pnpm add framer-motion lucide-react clsx tailwind-merge`} />
+                      </div>
                     </div>
+
                     <div className="space-y-4">
                       <h3 className="font-semibold text-xl">2. Add Utility Helper</h3>
-                      <p className="text-sm text-muted-foreground">Create a `lib/utils.ts` file.</p>
+                      <p className="text-sm text-muted-foreground">Create a `lib/utils.ts` (or `utils.js`) file to handle classes.</p>
                       <CodeBlock code={`import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}`} />
+                    </div>
+
+                    <div className="space-y-4 p-6 rounded-2xl bg-neutral-100 dark:bg-neutral-900 border border-border">
+                      <h3 className="font-bold text-xl flex items-center gap-2">
+                        <Box size={20} className="text-primary" />
+                        How to use 3D Assets
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Our components often use high-fidelity WebM videos or PNGs for that "pop". To use them in your own project:
+                      </p>
+                      <ul className="list-disc list-inside text-sm text-muted-foreground space-y-2 ml-2">
+                        <li><strong>Copy the Code</strong>: Grab the JSX for the component you want.</li>
+                        <li><strong>Asset URLs</strong>: You can hotlink our asset URLs or download them for your own hosting.</li>
+                        <li><strong>3D Settings</strong>: Ensure your container has `perspective-[1000px]` and the element has `transform-style: preserve-3d`.</li>
+                      </ul>
+                      <div className="mt-4 p-4 rounded-lg bg-background border border-border">
+                        <p className="text-xs font-medium italic">"The monochromatic look relies on contrast. Use deep blacks and bright whites to make the 3D edges visible."</p>
+                      </div>
                     </div>
                   </div>
                 )}

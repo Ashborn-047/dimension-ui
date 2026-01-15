@@ -35,23 +35,23 @@ export function Toast({
     const variants = {
         default: {
             bg: "bg-white dark:bg-neutral-900 border-border",
-            icon: <Info size={20} className="text-blue-500" />,
+            icon: <Info size={20} className="text-neutral-500" />,
         },
         success: {
-            bg: "bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800",
-            icon: <CheckCircle size={20} className="text-green-500" />,
+            bg: "bg-neutral-50 dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800",
+            icon: <CheckCircle size={20} className="text-neutral-900 dark:text-neutral-100" />,
         },
         error: {
-            bg: "bg-red-50 dark:bg-red-950 border-red-200 dark:border-red-800",
-            icon: <AlertCircle size={20} className="text-red-500" />,
+            bg: "bg-neutral-950 dark:bg-white border-neutral-800 dark:border-neutral-200",
+            icon: <AlertCircle size={20} className="text-neutral-50 dark:text-neutral-950" />,
         },
         warning: {
-            bg: "bg-yellow-50 dark:bg-yellow-950 border-yellow-200 dark:border-yellow-800",
-            icon: <AlertTriangle size={20} className="text-yellow-500" />,
+            bg: "bg-neutral-100 dark:bg-neutral-900 border-neutral-400 dark:border-neutral-600",
+            icon: <AlertTriangle size={20} className="text-neutral-600" />,
         },
         info: {
-            bg: "bg-blue-50 dark:bg-blue-950 border-blue-200 dark:border-blue-800",
-            icon: <Info size={20} className="text-blue-500" />,
+            bg: "bg-neutral-50 dark:bg-neutral-950 border-neutral-200 dark:border-neutral-800",
+            icon: <Info size={20} className="text-neutral-500" />,
         },
     };
 

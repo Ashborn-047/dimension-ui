@@ -45,7 +45,7 @@ export function Checkbox({
                         "relative w-7 h-7 rounded-md transition-all duration-200",
                         "shadow-[inset_0_2px_6px_rgba(0,0,0,0.15),0_1px_2px_rgba(0,0,0,0.05)]",
                         isChecked
-                            ? "bg-gradient-to-b from-blue-400 to-blue-500"
+                            ? "bg-neutral-800 dark:bg-neutral-100"
                             : "bg-gradient-to-b from-gray-200 to-gray-300 dark:from-neutral-700 dark:to-neutral-800"
                     )}
                     style={{
@@ -57,7 +57,7 @@ export function Checkbox({
                     <div
                         className={cn(
                             "absolute inset-0 rounded-md",
-                            isChecked ? "bg-blue-600" : "bg-gray-400 dark:bg-neutral-900"
+                            isChecked ? "bg-neutral-900 dark:bg-white" : "bg-gray-400 dark:bg-neutral-900"
                         )}
                         style={{
                             transform: "translateZ(-4px)",
@@ -97,7 +97,7 @@ export function Checkbox({
                                 transform: "translateZ(2px)",
                             }}
                         >
-                            <Check size={16} strokeWidth={3} className="text-blue-500" />
+                            <Check size={16} strokeWidth={3} className="text-neutral-50 dark:text-neutral-950" />
                         </div>
                     </motion.div>
 

@@ -30,5 +30,5 @@ export function FormDescription({ children, className }: { children: React.React
 }
 
 export function FormMessage({ children, className }: { children: React.ReactNode; className?: string }) {
-    return <p className={cn("text-[13px] font-medium text-red-500 dark:text-red-400 animate-in fade-in slide-in-from-top-1", className)}>{children}</p>;
+    return <p className={cn("text-[13px] font-medium text-neutral-900 dark:text-neutral-100 italic animate-in fade-in slide-in-from-top-1", className)}>{children}</p>;
 }

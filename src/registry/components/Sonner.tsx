@@ -22,7 +22,7 @@ export function Sonner({ toasts, onDismiss }: { toasts: SonnerToast[], onDismiss
                         exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
                         className={cn(
                             "pointer-events-auto relative flex w-full items-center justify-between space-x-4 overflow-hidden rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-4 pr-8 shadow-2xl transition-all",
-                            toast.type === "error" && "border-red-500/50"
+                            toast.type === "error" && "border-neutral-900 dark:border-neutral-100"
                         )}
                         style={{
                             perspective: "1000px",

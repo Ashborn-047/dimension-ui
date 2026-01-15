@@ -107,7 +107,7 @@ export function Command({ open, onOpenChange, className }: CommandProps) {
                                         className="flex items-center justify-between px-3 py-3 rounded-xl cursor-not-allowed group transition-colors"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="text-muted-foreground group-hover:text-blue-500 transition-colors">
+                                            <div className="text-muted-foreground group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
                                                 {item.icon}
                                             </div>
                                             <span className="font-medium">{item.label}</span>
@@ -119,11 +119,11 @@ export function Command({ open, onOpenChange, className }: CommandProps) {
 
                             {/* Parallax elements */}
                             <div
-                                className="absolute -top-20 -left-20 w-60 h-60 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none"
+                                className="absolute -top-20 -left-20 w-60 h-60 bg-neutral-200/5 dark:bg-neutral-800/10 rounded-full blur-[100px] pointer-events-none"
                                 style={{ transform: `translateZ(-50px)` }}
                             />
                             <div
-                                className="absolute -bottom-20 -right-20 w-60 h-60 bg-purple-500/5 rounded-full blur-[100px] pointer-events-none"
+                                className="absolute -bottom-20 -right-20 w-60 h-60 bg-neutral-800/5 dark:bg-neutral-200/10 rounded-full blur-[100px] pointer-events-none"
                                 style={{ transform: `translateZ(-50px)` }}
                             />
                         </motion.div>

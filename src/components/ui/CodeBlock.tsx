@@ -24,7 +24,7 @@ export function CodeBlock({ code, language = "tsx", className }: CodeBlockProps)
                     onClick={copyToClipboard}
                     className="p-2 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-all border border-slate-700 shadow-lg"
                 >
-                    {copied ? <Check size={16} className="text-green-500" /> : <Copy size={16} />}
+                    {copied ? <Check size={16} className="text-neutral-100" /> : <Copy size={16} />}
                 </button>
             </div>
             <div className="p-4 overflow-x-auto">
@@ -33,9 +33,9 @@ export function CodeBlock({ code, language = "tsx", className }: CodeBlockProps)
                 </pre>
             </div>
 
-            {/* Decorative gradient corners */}
-            <div className="absolute top-0 left-0 w-16 h-16 bg-blue-500/10 blur-2xl pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-16 h-16 bg-purple-500/10 blur-2xl pointer-events-none" />
+            {/* Decorative neutral corners */}
+            <div className="absolute top-0 left-0 w-16 h-16 bg-neutral-100/10 blur-2xl pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 bg-neutral-900/10 blur-2xl pointer-events-none" />
         </div>
     );
 }

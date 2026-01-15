@@ -80,7 +80,7 @@ export function AlertDialog({
                                 <div className="flex items-center gap-3">
                                     <div className={cn(
                                         "p-2 rounded-full",
-                                        variant === "destructive" ? "bg-red-100 text-red-600" : "bg-blue-100 text-blue-600"
+                                        variant === "destructive" ? "bg-neutral-900 text-neutral-50" : "bg-neutral-100 text-neutral-900"
                                     )}>
                                         <AlertCircle size={24} />
                                     </div>
@@ -110,9 +110,9 @@ export function AlertDialog({
                                 </div>
                             </div>
 
-                            {/* Float highlights */}
-                            <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-[80px] pointer-events-none" />
-                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-purple-500/10 rounded-full blur-[80px] pointer-events-none" />
+                            {/* Neutral highlights */}
+                            <div className="absolute -top-10 -left-10 w-40 h-40 bg-neutral-100/10 rounded-full blur-[80px] pointer-events-none" />
+                            <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-neutral-900/10 rounded-full blur-[80px] pointer-events-none" />
                         </motion.div>
                     </div>
                 </>

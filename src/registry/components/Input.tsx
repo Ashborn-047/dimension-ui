@@ -45,7 +45,7 @@ export function Input({
                     <div
                         className={cn(
                             "absolute inset-0 rounded-lg",
-                            error ? "bg-red-600" : isFocused ? "bg-blue-600" : "bg-gray-400 dark:bg-neutral-900"
+                            error ? "bg-neutral-950 dark:bg-white" : isFocused ? "bg-neutral-800 dark:bg-neutral-200" : "bg-gray-400 dark:bg-neutral-900"
                         )}
                         style={{
                             transform: "translateZ(-4px)",
@@ -82,9 +82,9 @@ export function Input({
                                 "shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_1px_2px_rgba(0,0,0,0.05)]",
                                 "focus:outline-none",
                                 error
-                                    ? "border-red-300 dark:border-red-800 focus:border-red-500"
-                                    : "border-gray-200 dark:border-neutral-700 focus:border-blue-400",
-                                isFocused && "shadow-[inset_0_2px_6px_rgba(0,0,0,0.08),0_0_0_3px_rgba(59,130,246,0.1)]",
+                                    ? "border-neutral-900 dark:border-neutral-100 focus:border-neutral-950"
+                                    : "border-gray-200 dark:border-neutral-700 focus:border-neutral-400",
+                                isFocused && "shadow-[inset_0_2px_6px_rgba(0,0,0,0.08),0_0_0_3px_rgba(0,0,0,0.05)]",
                                 icon && "pl-10",
                                 className
                             )}
@@ -105,7 +105,7 @@ export function Input({
             </div>
 
             {error && (
-                <p className="text-xs text-red-500 dark:text-red-400 mt-1 ml-1">{error}</p>
+                <p className="text-xs text-neutral-900 dark:text-neutral-100 mt-1 ml-1 italic font-medium">{error}</p>
             )}
         </div>
     );

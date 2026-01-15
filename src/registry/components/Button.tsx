@@ -18,19 +18,19 @@ export function Button({
 }: ButtonProps) {
     const variants = {
         default: {
-            top: "bg-gradient-to-b from-blue-400 to-blue-500",
-            side: "bg-blue-700",
-            glow: "shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+            top: "bg-neutral-800 dark:bg-neutral-100",
+            side: "bg-neutral-950 dark:bg-neutral-300",
+            glow: "shadow-[0_0_20px_rgba(0,0,0,0.3)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
         },
         secondary: {
-            top: "bg-gradient-to-b from-gray-300 to-gray-400 dark:from-neutral-600 dark:to-neutral-700",
-            side: "bg-gray-600 dark:bg-neutral-900",
-            glow: "shadow-[0_0_15px_rgba(107,114,128,0.3)]"
+            top: "bg-neutral-100 dark:bg-neutral-800",
+            side: "bg-neutral-300 dark:bg-neutral-950",
+            glow: "shadow-[0_0_15px_rgba(0,0,0,0.1)]"
         },
         destructive: {
-            top: "bg-gradient-to-b from-red-400 to-red-500",
-            side: "bg-red-700",
-            glow: "shadow-[0_0_20px_rgba(239,68,68,0.5)]"
+            top: "bg-neutral-950 dark:bg-neutral-900 border border-neutral-700",
+            side: "bg-black",
+            glow: "shadow-[0_0_20px_rgba(0,0,0,0.5)]"
         },
         outline: {
             top: "bg-background border border-border text-foreground dark:bg-neutral-900",

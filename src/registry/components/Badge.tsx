@@ -16,9 +16,9 @@ export function Badge({
     className
 }: BadgeProps) {
     const variants = {
-        default: "bg-primary text-primary-foreground border-primary/50",
-        secondary: "bg-secondary text-secondary-foreground border-secondary",
-        destructive: "bg-destructive text-destructive-foreground border-destructive/50",
+        default: "bg-neutral-900 text-neutral-50 border-neutral-800 dark:bg-neutral-100 dark:text-neutral-900",
+        secondary: "bg-neutral-100 text-neutral-900 border-neutral-200 dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-700",
+        destructive: "bg-white text-neutral-950 border-neutral-950 font-black dark:bg-neutral-900 dark:text-neutral-50 dark:border-neutral-50",
         outline: "bg-background text-foreground border-border",
     };
 

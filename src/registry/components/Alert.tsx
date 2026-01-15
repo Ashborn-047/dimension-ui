@@ -20,28 +20,28 @@ export function Alert({
 }: AlertProps) {
     const variants = {
         default: {
-            bg: "bg-blue-50 dark:bg-blue-950/20",
-            border: "border-blue-200 dark:border-blue-800",
-            text: "text-blue-800 dark:text-blue-300",
-            icon: <Info className="h-5 w-5 text-blue-500" />
+            bg: "bg-neutral-50 dark:bg-neutral-950/20",
+            border: "border-neutral-200 dark:border-neutral-800",
+            text: "text-neutral-800 dark:text-neutral-300",
+            icon: <Info className="h-5 w-5 text-neutral-500" />
         },
         destructive: {
-            bg: "bg-red-50 dark:bg-red-950/20",
-            border: "border-red-200 dark:border-red-800",
-            text: "text-red-800 dark:text-red-300",
-            icon: <AlertCircle className="h-5 w-5 text-red-500" />
+            bg: "bg-neutral-100 dark:bg-black/40",
+            border: "border-neutral-900 dark:border-neutral-100",
+            text: "text-neutral-950 dark:text-neutral-50",
+            icon: <AlertCircle className="h-5 w-5 text-neutral-900 dark:text-neutral-100" />
         },
         warning: {
-            bg: "bg-yellow-50 dark:bg-yellow-950/20",
-            border: "border-yellow-200 dark:border-yellow-800",
-            text: "text-yellow-800 dark:text-yellow-300",
-            icon: <AlertTriangle className="h-5 w-5 text-yellow-500" />
+            bg: "bg-neutral-50 dark:bg-neutral-900/40",
+            border: "border-neutral-400 dark:border-neutral-600",
+            text: "text-neutral-900 dark:text-neutral-200",
+            icon: <AlertTriangle className="h-5 w-5 text-neutral-600" />
         },
         success: {
-            bg: "bg-green-50 dark:bg-green-950/20",
-            border: "border-green-200 dark:border-green-800",
-            text: "text-green-800 dark:text-green-300",
-            icon: <CheckCircle2 className="h-5 w-5 text-green-500" />
+            bg: "bg-white dark:bg-neutral-950/50",
+            border: "border-neutral-300 dark:border-neutral-700",
+            text: "text-neutral-950 dark:text-neutral-50",
+            icon: <CheckCircle2 className="h-5 w-5 text-neutral-500" />
         }
     };
 

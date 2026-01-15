@@ -25,10 +25,10 @@ export function Avatar({
     };
 
     const statusColors = {
-        online: "bg-green-500",
-        offline: "bg-gray-400",
-        away: "bg-yellow-500",
-        busy: "bg-red-500",
+        online: "bg-neutral-100 border-neutral-900",
+        offline: "bg-neutral-400",
+        away: "bg-neutral-200",
+        busy: "bg-neutral-950",
     };
 
     return (
