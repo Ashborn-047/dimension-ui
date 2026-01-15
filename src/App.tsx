@@ -715,9 +715,29 @@ export default function App() {
                       </p>
                       <ul className="list-disc list-inside text-sm text-muted-foreground space-y-2 ml-2">
                         <li><strong>Copy the Code</strong>: Grab the JSX for the component you want.</li>
-                        <li><strong>Asset URLs</strong>: You can hotlink our asset URLs or download them for your own hosting.</li>
+                        <li><strong>Asset URLs</strong>: Go to the "Asset Library" tab and click any item to copy its URL.</li>
                         <li><strong>3D Settings</strong>: Ensure your container has `perspective-[1000px]` and the element has `transform-style: preserve-3d`.</li>
                       </ul>
+
+                      <div className="mt-6 space-y-4">
+                        <h4 className="font-bold text-sm text-foreground uppercase tracking-wider">Step-by-Step Integration</h4>
+                        <div className="space-y-4 border-l-2 border-neutral-200 dark:border-neutral-800 ml-2 pl-6 py-2">
+                          <div className="relative">
+                            <div className="absolute -left-[31px] top-0 size-4 rounded-full bg-neutral-900 border-2 border-background" />
+                            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Pick</strong>: Navigate to "Asset Library" and click an emoji to copy its direct URL.</p>
+                          </div>
+                          <div className="relative">
+                            <div className="absolute -left-[31px] top-0 size-4 rounded-full bg-neutral-900 border-2 border-background" />
+                            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Place</strong>: Paste the URL into an `img` tag or `video` tag in your project.</p>
+                          </div>
+                          <div className="relative">
+                            <div className="absolute -left-[31px] top-0 size-4 rounded-full bg-neutral-900 border-2 border-background" />
+                            <p className="text-sm text-muted-foreground"><strong className="text-foreground">Style</strong>: Apply `filter: grayscale(1)` to match the monochromatic vibe.</p>
+                          </div>
+                        </div>
+                        <CodeBlock code={`<img \n  src="COPIED_URL" \n  className="w-16 h-16 grayscale opacity-90 transition-all"\n/>`} />
+                      </div>
+
                       <div className="mt-4 p-4 rounded-lg bg-background border border-border">
                         <p className="text-xs font-medium italic">"The monochromatic look relies on contrast. Use deep blacks and bright whites to make the 3D edges visible."</p>
                       </div>
