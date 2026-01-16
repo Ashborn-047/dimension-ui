@@ -718,38 +718,82 @@ export default function App() {
                       <h3 className="font-semibold text-xl">1. Install CLI</h3>
                       <p className="text-sm text-muted-foreground">Install the Dimension UI CLI as a development dependency or run it via npx.</p>
                       <div className="space-y-4">
-                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1">Option A: npm install</div>
-                        <CodeBlock code={`npm install dimension-ui -D`} />
-                        <div className="text-xs font-bold text-muted-foreground uppercase tracking-widest px-1 mt-4">Option B: npx (recommended)</div>
-                        <CodeBlock code={`npx dimension-ui init`} />
+                        <div>
+                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Command: Install Package</p>
+                          <CodeBlock code={`npm install dimension-ui -D`} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1 mt-4">Command: Initialize (Recommended)</p>
+                          <CodeBlock code={`npx dimension-ui init`} />
+                        </div>
                       </div>
                     </div>
 
                     <div className="space-y-4">
                       <h3 className="font-semibold text-xl">2. Initialize Project</h3>
                       <p className="text-sm text-muted-foreground">Setup your tailwind config, global 3D CSS, and monochromatic variables.</p>
-                      <CodeBlock code={`dimension-ui init`} />
+                      <div>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Command: Setup Environment</p>
+                        <CodeBlock code={`dimension-ui init`} />
+                      </div>
                     </div>
 
                     <div className="space-y-4">
                       <h3 className="font-semibold text-xl">3. Add Components</h3>
                       <p className="text-sm text-muted-foreground">Fetch the "Original Code" from our registry and drop it into your local folder.</p>
-                      <CodeBlock code={`dimension-ui add button`} />
+                      <div>
+                        <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Command: Add Component</p>
+                        <CodeBlock code={`dimension-ui add [component-name]`} />
+                        <p className="text-xs text-muted-foreground mt-2 italic px-1">Example: <code className="text-primary">dimension-ui add button</code> or <code className="text-primary">dimension-ui add card</code></p>
+                      </div>
                     </div>
 
                     <div className="space-y-6 pt-8 border-t">
                       <h3 className="font-semibold text-xl">Manual Installation</h3>
-                      <p className="text-sm text-muted-foreground">If you prefer not to use the CLI, you can setup the dependencies manually.</p>
+                      <p className="text-sm text-muted-foreground">If the CLI doesn't support your environment yet, follow these steps to use Dimension UI.</p>
 
                       <div className="space-y-4">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">A. Install Peer Dependencies</h4>
-                        <CodeBlock code={`npm install framer-motion lucide-react clsx tailwind-merge`} />
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">A. Install Dependencies</h4>
+                        <div>
+                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Command: dependencies</p>
+                          <CodeBlock code={`npm install framer-motion lucide-react clsx tailwind-merge\nnpm install @tailwindcss/postcss -D`} />
+                        </div>
                       </div>
 
                       <div className="space-y-4">
-                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">B. Setup Utilities</h4>
-                        <p className="text-sm text-muted-foreground">Create a `lib/utils.ts` to handle dynamic classes.</p>
-                        <CodeBlock code={`import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}`} />
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">B. Setup Path Aliases</h4>
+                        <p className="text-sm text-muted-foreground">Ensure your project supports the <code className="text-primary">@/</code> alias.</p>
+                        <div className="grid gap-4">
+                          <div>
+                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Config: vite.config.ts</p>
+                            <CodeBlock code={`import path from "path"\nimport { defineConfig } from "vite"\n\nexport default defineConfig({\n  resolve: {\n    alias: {\n      "@": path.resolve(__dirname, "./src"),\n    },\n  },\n})`} />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">C. Tailwind CSS v4 Configuration</h4>
+                        <p className="text-sm text-muted-foreground">In Tailwind v4, use <code className="text-primary">postcss.config.js</code> and define theme variables in your CSS.</p>
+
+                        <div className="space-y-4">
+                          <div>
+                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Config: postcss.config.js</p>
+                            <CodeBlock code={`export default {\n  plugins: {\n    "@tailwindcss/postcss": {},\n    autoprefixer: {},\n  },\n}`} />
+                          </div>
+                          <div>
+                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">File: index.css</p>
+                            <CodeBlock code={`@import "tailwindcss";\n\n@theme {\n  --color-border: hsl(var(--border));\n  --color-background: hsl(var(--background));\n  --color-foreground: hsl(var(--foreground));\n  /* ... other variables ... */\n}\n\n@layer base {\n  :root {\n    --background: 0 0% 100%;\n    --border: 0 0% 89.8%;\n    /* ... variables from Shadcn/UI or your own ... */\n  }\n\n  /* 3D Primitives */\n  .perspective-1000 { perspective: 1000px; }\n  .preserve-3d { transform-style: preserve-3d; }\n}`} />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground">D. Utilities</h4>
+                        <p className="text-sm text-muted-foreground">Create <code className="text-primary">src/lib/utils.ts</code> for dynamic class merging.</p>
+                        <div>
+                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">File: src/lib/utils.ts</p>
+                          <CodeBlock code={`import { clsx, type ClassValue } from "clsx";\nimport { twMerge } from "tailwind-merge";\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs));\n}`} />
+                        </div>
                       </div>
                     </div>
 
@@ -783,7 +827,10 @@ export default function App() {
                             <p className="text-sm text-muted-foreground"><strong className="text-foreground">Style</strong>: Apply `filter: grayscale(1)` to match the monochromatic vibe.</p>
                           </div>
                         </div>
-                        <CodeBlock code={`<img \n  src="COPIED_URL" \n  className="w-16 h-16 grayscale opacity-90 transition-all"\n/>`} />
+                        <div>
+                          <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-wider mb-1.5 px-1">Code: Implementation Template</p>
+                          <CodeBlock code={`<img \n  src="COPIED_URL" \n  className="w-16 h-16 grayscale opacity-90 transition-all"\n/>`} />
+                        </div>
                       </div>
 
                       <div className="mt-4 p-4 rounded-lg bg-background border border-border">
